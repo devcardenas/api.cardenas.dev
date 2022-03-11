@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class SocialMedia extends Model
 {
     use HasFactory;
 
-    protected $table = 'Profiles';
-    protected $primaryKey = 'profile_id';
+    protected $table = 'socials_medias';
+    protected $primaryKey = 'social_media_id';
 
 }

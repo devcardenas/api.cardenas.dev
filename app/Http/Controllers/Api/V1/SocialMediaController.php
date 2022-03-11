@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Profile;
+use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\V1\ProfileResource;
+use App\Http\Resources\V1\SocialMediaCollection;
 
-class ProfileController extends Controller
+class SocialMediaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,6 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profile = Profile::where('status', 1)->where('profile_id', 1)->first();
-        return new ProfileResource($profile);
+       return new SocialMediaCollection(SocialMedia::where('status', 1)->where('profile_id', 1)->get());
     }
 }

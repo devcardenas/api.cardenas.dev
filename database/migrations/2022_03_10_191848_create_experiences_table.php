@@ -24,6 +24,7 @@ class CreateExperiencesTable extends Migration
             $table->date("end_date")->nullable();
             $table->text("description")->nullable();
             $table->integer("status");
+            $table->integer("current");
             $table->timestamps();
         });
     }
