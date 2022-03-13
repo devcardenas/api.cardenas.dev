@@ -17,11 +17,12 @@ class ProjectResource extends JsonResource
         return [
             "title" => $this->title,
             "description" => $this->description,
-            "slogan" => $this->company,
+            "slogan" => $this->slogan,
             "url" => $this->url,
             "icons" => $this->icons,
             "technologies" => $this->technologies,
-            "image_path" => url($this->image_path),
+            "image_path" => $this->image_path ? url($this->image_path) : url(asset('img/default.png'))
+            
         ];
     }
 }

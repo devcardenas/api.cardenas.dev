@@ -17,7 +17,7 @@ class ProjectTypeController extends Controller
      */
     public function index()
     {
-        return new ProjectTypeCollection(ProjectType::where('status', 1)->get());
+        return new ProjectTypeCollection(ProjectType::where('status', 1)->orderBy('name', 'asc')->get());
     }
 
     /**

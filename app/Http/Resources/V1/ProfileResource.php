@@ -23,7 +23,7 @@ class ProfileResource extends JsonResource
             'excerpt' => $this->excerpt,
             'cv_path' => url($this->cv_path),
             'profile_image_path' => url($this->profile_image_path),
-            'edad' => calcular_edad($this->date_of_birth),
+            'age' => calcular_edad($this->date_of_birth),
         ];
     }
 

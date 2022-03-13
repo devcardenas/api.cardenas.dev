@@ -16,7 +16,14 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profile = Profile::where('status', 1)->where('profile_id', 1)->first();
-        return new ProfileResource($profile);
+        /*$profile = Profile::where('status', 1)->where('profile_id', 1)->first();
+        return new ProfileResource($profile);*/
+
+        return response()->json([
+            "data" => [
+                "profile" => "test"
+            ]
+        ], 200);
+
     }
 }

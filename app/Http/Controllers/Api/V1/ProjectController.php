@@ -16,7 +16,7 @@ class ProjectController extends Controller
      */
     public function getProjectsByType($project_type_id)
     {
-        return new ProjectCollection(Project::where('status', 1)->where('project_type_id', $project_type_id)->where('profile_id', 1)->get());
+        return new ProjectCollection(Project::where('status', 1)->where('project_type_id', $project_type_id)->where('profile_id', 1)->orderBy('title', 'asc')->get());
     }
 
       /**

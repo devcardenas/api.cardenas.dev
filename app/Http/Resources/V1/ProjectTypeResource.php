@@ -15,6 +15,7 @@ class ProjectTypeResource extends JsonResource
     public function toArray($request)
     {
         return [
+            "project_type_id" => $this->project_type_id,
             "name" => $this->name,
             'projects' => ProjectResource::collection($this->whenLoaded('projects')),
         ];

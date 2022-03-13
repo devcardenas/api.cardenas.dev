@@ -29,9 +29,9 @@ Route::get('/v1/social-media', [SocialMediaController::class, 'index']); // Get 
 Route::get('/v1/experience', [ExperienceController::class, 'index']); // Get all experiences
 Route::get('/v1/education', [EducationController::class, 'index']); // get all educations
 Route::get('/v1/skills', [SkillController::class, 'index']); // Get all skills
-Route::get('/v1/total-projects', [ProjectController::class, 'getTotalProjects']); // Get total of projects
+Route::get('/v1/projects/totals', [ProjectController::class, 'getTotalProjects']); // Get total of projects
 Route::get('/v1/projects', [ProjectTypeController::class, 'getProjectsTypesWithProjects']); // Get projects type with projects
 Route::get('/v1/projects/types', [ProjectTypeController::class, 'index']); // Get projects types
-Route::get('/v1/projects/{project_type_id}', [ProjectController::class, 'getProjectsByType']);  // Get projects by type
+Route::get('/v1/projects/types/{project_type_id}', [ProjectController::class, 'getProjectsByType']);  // Get projects by type
 
 
