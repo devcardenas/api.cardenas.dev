@@ -2,11 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5DS59KM');</script>
+    <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
     <meta name="theme-color" content="#121f3d" />
-    <meta NAME="keywords" CONTENT="portafolio, portfolio" />
+    <meta NAME="keywords" CONTENT="portafolio, portfolio, prospero cardenas alvarez, prospero, cardenas, alvarez" />
     <meta NAME="description" CONTENT="CV - Próspero Cárdenas Álvarez" />
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -35,6 +42,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DS59KM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="app">
 
     </div>
