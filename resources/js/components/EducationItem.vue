@@ -1,6 +1,6 @@
 <template>
     <div
-        class="d-flex flex-column flex-md-row justify-content-between mb-5"
+        class="d-flex flex-column flex-md-row justify-content-between mb-5 item"
         v-for="education in educations"
         :key="education"
     >

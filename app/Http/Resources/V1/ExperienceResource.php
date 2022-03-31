@@ -22,6 +22,7 @@ class ExperienceResource extends JsonResource
             "start_date" => $this->start_date,
             "end_date" => $this->end_date,
             "current" => $this->current,
+            "logo_company_url" => $this->logo_company_url,
         ];
     }
 }

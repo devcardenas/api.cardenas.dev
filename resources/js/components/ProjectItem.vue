@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-md-3" v-for="project in projects" :key="project">
-            <div class="card my-3">
+            <div class="card my-3 portfolio-item">
                 <img
                     :src="project.image_path"
                     class="card-img-top"

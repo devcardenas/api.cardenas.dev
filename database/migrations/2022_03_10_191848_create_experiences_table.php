@@ -25,6 +25,7 @@ class CreateExperiencesTable extends Migration
             $table->text("description")->nullable();
             $table->integer("status");
             $table->integer("current");
+            $table->text("logo_company_url")->nullable();
             $table->timestamps();
         });
     }

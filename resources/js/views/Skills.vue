@@ -6,12 +6,10 @@
                 <div class="resume-section-content">
                     <h2 class="mb-5">Habilidades</h2>
                     <div class="row">
-                        <div class="col-md-6">
                             <SkillItem
                                 :skills="skills"
                                 v-if="skills"
                             ></SkillItem>
-                        </div>
                     </div>
                 </div>
             </section>
