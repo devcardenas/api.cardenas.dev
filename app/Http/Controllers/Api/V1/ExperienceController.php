@@ -16,7 +16,7 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        return new ExperienceCollection(Experience::where('status', 1)->where('profile_id', 1)->get());
+        return new ExperienceCollection(Experience::where('status', 1)->where('profile_id', 1)->orderBy('end_date', 'DESC')->get());
     }
 
 }
