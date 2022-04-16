@@ -7,14 +7,14 @@
         <a
             class="navbar-brand js-scroll-trigger"
             href="#page-top"
-            v-if="profile"
+            v-if="this.$store.state.profile && this.$store.state.profile !== null"
         >
-            <span class="d-block d-lg-none">{{ profile.name }}</span>
+            <span class="d-block d-lg-none">{{ this.$store.state.profile.name }}</span>
             <span class="d-none d-lg-block"
                 ><img
                     class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    :src="profile.profile_image_path"
-                    :alt="profile.name"
+                    :src="this.$store.state.profile.profile_image_path"
+                    :alt="this.$store.state.profile.name"
             /></span>
         </a>
         <div v-else>
@@ -38,10 +38,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <!-- Se activa por defecto -->
                     <router-link
                         class="nav-link js-scroll-trigger"
+                        :class="{ active: isActive('/') }"
                         to="/about"
                         active-class="active"
+                        @click="closeNav(event)"
                     >
                         Acerca de</router-link
                     >
@@ -51,6 +54,7 @@
                         class="nav-link js-scroll-trigger"
                         to="/experience"
                         active-class="active"
+                        @click="closeNav(event)"
                         >Experiencia</router-link
                     >
                 </li>
@@ -59,6 +63,7 @@
                         class="nav-link js-scroll-trigger"
                         to="/education"
                         active-class="active"
+                        @click="closeNav(event)"
                         >Educación</router-link
                     >
                 </li>
@@ -67,6 +72,7 @@
                         class="nav-link js-scroll-trigger"
                         to="/skills"
                         active-class="active"
+                        @click="closeNav(event)"
                         >Skills</router-link
                     >
                 </li>
@@ -75,6 +81,7 @@
                         class="nav-link js-scroll-trigger"
                         to="/portfolio"
                         active-class="active"
+                        @click="closeNav(event)"
                         >Portafolio</router-link
                     >
                 </li>
@@ -88,24 +95,16 @@ import { Global } from "../Global.js";
 import axios from "axios";
 
 export default {
-    mounted() {
-        this.getProfile();
-    },
-    data() {
-        return {
-            profile: null,
-        };
-    },
     methods: {
-        getProfile() {
-            axios
-                .get(Global.url + "v1/profile")
-                .then((response) => {
-                    this.profile = response.data.data;
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+        isActive(route) {
+            return this.$route.path === route;
+        },
+        closeNav() {
+            const nav = document.querySelector(".navbar-toggler");
+            nav.classList.remove("collapsed");
+            nav.setAttribute("aria-expanded", "false");
+
+            document.querySelector("#navbarResponsive").classList.remove("show");
         },
     },
 };

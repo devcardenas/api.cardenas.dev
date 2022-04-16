@@ -1,29 +1,29 @@
 <template>
     <!-- About-->
-    <div class="row" v-if="profile">
-        <div class="col-md-10 col-xl-12">
+    <div class="row" v-if="this.$store.state.profile">
+        <div class="col-md-12">
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
                     <div class="text-center">
                         <span class="d-none-block d-lg-none"
                             ><img
                                 class="img-fluid img-profile rounded-circle mx-auto mb-2 w-50"
-                                :src="profile.profile_image_path"
+                                :src="this.$store.state.profile.profile_image_path"
                                 alt="..."
                         /></span>
                     </div>
                     <div class="row align-items-end">
                         <div class="col-md-auto">
                             <h1 class="mb-0 me-xl-4">
-                                <span class="text-secondary" v-if="profile">{{
-                                    profile.name
+                                <span class="text-secondary" v-if="this.$store.state.profile">{{
+                                    this.$store.state.profile.name
                                 }}</span>
                             </h1>
                         </div>
                         <div class="col-md-auto">
                             <div class="d-flex align-items-end">
-                                <h2 class="mb-0 text-primary" v-if="profile">
-                                    {{ profile.subtitle }}
+                                <h2 class="mb-0 text-primary" v-if="this.$store.state.profile">
+                                    {{ this.$store.state.profile.subtitle }}
                                 </h2>
                                 <h3>
                                     <i
@@ -33,33 +33,35 @@
                             </div>
                         </div>
                     </div>
-                    <div class="subheading mb-5" v-if="profile">
-                        {{ profile.age }} años · {{ profile.address }} ·
-                        <a :href="'tel:55' + deleteSpaces(profile.phone)" target="_blank">{{
-                            profile.phone
-                        }}</a>
-                        ·
+                    <div class="subheading mb-5" v-if="this.$store.state.profile">
+                        {{ this.$store.state.profile.age }} años • {{ this.$store.state.profile.address }} •
                         <a
-                            :href="'mailto:' + profile.email"
+                            :href="'tel:55' + deleteSpaces(this.$store.state.profile.phone)"
+                            target="_blank"
+                            >{{ this.$store.state.profile.phone }}</a
+                        >
+                        •
+                        <a
+                            :href="'mailto:' + this.$store.state.profile.email"
                             class="text-lowercase"
                             target="_blank"
-                            >{{ profile.email }}</a
+                            >{{ this.$store.state.profile.email }}</a
                         >
                     </div>
-                    <p class="lead mb-5" v-if="profile">
-                        {{ profile.excerpt }}
+                    <p class="lead mb-5" v-if="this.$store.state.profile">
+                        {{ this.$store.state.profile.excerpt }}
                     </p>
-                    <div class="social-icons">
+                   <div class="social-icons">
                         <SocialMedia
-                            :socials_medias="socials_medias"
+                            :social_medias="this.$store.state.social_medias"
                         ></SocialMedia>
                     </div>
                     <br />
                     <a
-                        v-if="profile"
+                        v-if="this.$store.state.profile"
                         class="btn btn-primary"
-                        :href="profile.cv_path"
-                        :download="formatNamePdf(profile.name)"
+                        :href="this.$store.state.profile.cv_path"
+                        :download="formatNamePdf(this.$store.state.profile.name)"
                         target="_blank"
                         ><i class="bi bi-download me-2"></i>Descargar CV</a
                     >
@@ -68,10 +70,10 @@
         </div>
     </div>
     <div v-else class="row">
-        <div class="col-md-10 col-xl-12">
+        <div class="col-md-12">
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
-                  <Preloader />
+                    <Preloader />
                 </div>
             </section>
         </div>
@@ -82,46 +84,20 @@
 import SocialMedia from "../components/SocialMedia.vue";
 import Preloader from "../components/Preloader.vue";
 import { Global } from "../Global.js";
-import axios from "axios";
 
 export default {
     components: {
         SocialMedia,
-        Preloader
-    },
-    mounted() {
-        this.getSocialsMedias();
-        this.getProfile();
+        Preloader,
     },
     data() {
         return {
-            socials_medias: null,
-            profile: null,
+            Global,
         };
     },
     methods: {
         formatNamePdf(name) {
             return ("CV_" + name.replace(/\s/g, "_")).toUpperCase() + ".pdf";
-        },
-        getSocialsMedias() {
-            axios
-                .get(Global.url + "v1/social-media")
-                .then((response) => {
-                    this.socials_medias = response.data.data;
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        },
-        getProfile() {
-            axios
-                .get(Global.url + "v1/profile")
-                .then((response) => {
-                    this.profile = response.data.data;
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
         },
         deleteSpaces(string) {
             return string.replaceAll(" ", "");

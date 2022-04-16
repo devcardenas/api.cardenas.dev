@@ -1,6 +1,6 @@
 <template>
     <a
-        v-for="socialmedia in socials_medias"
+        v-for="socialmedia in social_medias"
         :key="socialmedia"
         class="social-icon text-decoration-none"
         :href="socialmedia.url"
@@ -11,6 +11,6 @@
 
 <script>
 export default {
-    props: ["socials_medias"],
+    props: ["social_medias"],
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
     <!-- Experience-->
     <div class="row" v-if="experiences">
-        <div class="col-md-12 col-lg-10">
+        <div class="col-md-12">
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
                     <div class="mb-5 d-flex align-items-center">
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div v-else class="row">
-        <div class="col-md-10 col-xl-12">
+        <div class="col-md-12">
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
                     <Preloader />

@@ -1,7 +1,7 @@
 <template>
     <!-- Skills-->
     <div class="row" v-if="skills">
-        <div class="col-md-12 col-lg-12">
+        <div class="col-md-12">
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Habilidades</h2>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div v-else class="row">
-        <div class="col-md-10 col-xl-12">
+        <div class="col-md-12">
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
                     <Preloader />

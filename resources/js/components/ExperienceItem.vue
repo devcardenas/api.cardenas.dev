@@ -7,25 +7,34 @@
         <div class="flex-grow-1">
             <div class="d-flex align-items-center mb-3">
                 <img
-                    :src="experience.logo_company_url ? experience.logo_company_url : '/img/logo-placeholder.png'"
+                    :src="
+                        experience.logo_company_url
+                            ? experience.logo_company_url
+                            : '/img/logo-placeholder.png'
+                    "
                     alt="logo"
-                    width="75"
-                    height="75"
-                    class="me-3 bg-white p-1"
+                    width="65"
+                    height="65"
+                    class="me-3 bg-white p-1 rounded"
                 />
                 <div>
                     <h3 class="mb-0">{{ experience.title }}</h3>
-                    <div class="subheading">{{ experience.company }}</div>
+                    <div>
+                        <span class="subheading me-2">{{ experience.company }}</span>
+                        <small><i class="bi bi-geo-alt me-1"></i>{{ experience.location }}</small>
+                    </div>
                 </div>
             </div>
             <div v-html="experience.description"></div>
         </div>
 
-        <div class="flex-shrink-0">
+        <div class="flex-shrink-0 text-end">
             <span class="text-primary"
                 >{{ formatDate(experience.start_date) }} -
                 {{ isCurrentJob(experience) }}</span
             >
+            <br />
+            <span class="text-secondary">{{ experience.time }}</span>
         </div>
     </div>
 </template>
