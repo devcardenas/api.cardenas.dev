@@ -11515,3 +11515,7 @@ ul{
 .item p{
   margin: 0;
 }
+
+#sideNav a{
+  outline: none;
+}
