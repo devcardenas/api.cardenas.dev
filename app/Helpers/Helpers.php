@@ -41,10 +41,10 @@ if (!function_exists('calcular_edad')) {
         }
 
         if ($tiempo->m > 0) {
-            $tiempo_texto .= $tiempo->m . " meses ";
-            if ($tiempo->d > 0) {
+            $tiempo_texto .= $tiempo->m > 1 ? $tiempo->m . " meses" : $tiempo->m . " mes";
+            /*if ($tiempo->d > 0) {
                 $tiempo_texto .= ", ";
-            }
+            }*/
         }
 
         if ($tiempo->d > 0) {

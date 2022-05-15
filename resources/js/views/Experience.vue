@@ -6,7 +6,7 @@
                 <div class="resume-section-content">
                     <div class="mb-5 d-flex align-items-center">
                         <h2 class="m-0">Experiencia</h2>
-                        <p class="h4 text-primary m-0">
+                        <p class="h4 text-primary m-0 d-none">
                             <span class="text-secondary ms-2">+</span> 2 años
                         </p>
                     </div>

@@ -7,7 +7,7 @@
                     <div class="text-center">
                         <span class="d-none-block d-lg-none"
                             ><img
-                                class="img-fluid img-profile rounded-circle mx-auto mb-2 w-50"
+                                class="img-fluid img-profile rounded-circle mx-auto mb-2 w-50 border-profile"
                                 :src="this.$store.state.profile.profile_image_path"
                                 alt="..."
                         /></span>
